@@ -13,7 +13,7 @@ def home(request):
     return render(
         request,
         'app/index.html',
-        context_instance = RequestContext(request,
+        context = RequestContext(request,
         {
             'title':'Home Page',
             'year':datetime.now().year,
@@ -23,15 +23,16 @@ def home(request):
 def contact(request):
     """Renders the contact page."""
     assert isinstance(request, HttpRequest)
+    context = RequestContext(request,
+        {
+          'title': 'Contact',
+          'message': 'Your contact page.',
+          'year': datetime.now().year,
+        })
     return render(
         request,
         'app/contact.html',
-        context_instance = RequestContext(request,
-        {
-            'title':'Contact',
-            'message':'Your contact page.',
-            'year':datetime.now().year,
-        })
+        context
     )
 
 def about(request):
@@ -40,7 +41,7 @@ def about(request):
     return render(
         request,
         'app/about.html',
-        context_instance = RequestContext(request,
+        context = RequestContext(request,
         {
             'title':'About',
             'message':'Your application description page.',
