@@ -2,7 +2,7 @@
 Django settings for DjangoApp project.
 """
 
-from os import path, os
+from os import path
 
 PROJECT_ROOT = path.dirname(path.abspath(path.dirname(__file__)))
 
@@ -122,7 +122,7 @@ TEMPLATE_DIRS = (
     # "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    os.path.join(PROJECT_ROOT, 'templates').replace('\\','/'),
+    path.join(PROJECT_ROOT, 'templates').replace('\\','/'),
 )
 
 INSTALLED_APPS = (
